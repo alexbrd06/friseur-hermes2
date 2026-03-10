@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friseur Hermes - Premium Friseursalon in Schöppingen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c0c0c0;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #e8e8e8;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #c0c0c0;
+        }
+
+        header h1 span {
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #c0c0c0;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c0c0c0;
+            transition: width 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: #e8e8e8;
+            padding: 150px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(192, 192, 192, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(192, 192, 192, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .hero .subtitle {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #c0c0c0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #b8b8b8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #c0c0c0;
+            color: #1a1a1a;
+            padding: 14px 40px;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid #c0c0c0;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0 10px;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #c0c0c0;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(192, 192, 192, 0.2);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #c0c0c0;
+            border: 2px solid #c0c0c0;
+        }
+
+        .cta-button.secondary:hover {
+            background: #c0c0c0;
+            color: #1a1a1a;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+        }
+
+        section h2 {
+            font-size: 42px;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+            text-align: center;
+            position: relative;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #c0c0c0, transparent);
+            margin: 20px auto 0;
+        }
+
+        /* Öffnungszeiten Section */
+        #oeffnungszeiten {
+            background-color: #fff;
+        }
+
+        .opening-hours {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .hours-card {
+            background: linear-gradient(135deg, #f9f9f9 0%, #fff 100%);
+            padding: 35px;
+            border-radius: 0;
+            border-left: 4px solid #c0c0c0;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .hours-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-left-color: #1a1a1a;
+        }
+
+        .hours-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .hours-card p {
+            color: #666;
+            font-weight: 500;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+        }
+
+        .closed {
+            color: #999;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Kontakt Section */
+        #kontakt {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #e8e8e8;
+        }
+
+        #kontakt h2 {
+            color: #fff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        #kontakt h2::after {
+            background: linear-gradient(90deg, transparent, #c0c0c0, transparent);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid rgba(192, 192, 192, 0.2);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 0;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: #c0c0c0;
+            background: rgba(192, 192, 192, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #c0c0c0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-item p {
+            font-size: 16px;
+            color: #b8b8b8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 2px solid #c0c0c0;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            color: #c0c0c0;
+            padding-bottom: 5px;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c0c0c0, transparent);
+            margin: 80px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            color: #888;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border-top: 1px solid #333;
+        }
+
+        footer p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 100px 20px;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+                letter-spacing: 1px;
+            }
+
+            .hero .subtitle {
+                font-size: 14px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section h2 {
+                font-size: 32px;
+                letter-spacing: 1px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .opening-hours {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hours-card {
+                padding: 25px;
+            }
+
+            .contact-item {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
+            nav {
+                gap: 10px;
+                font-size: 12px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            section h2 {
+                font-size: 24px;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 12px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero .content {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>✂️ <span>FRISEUR</span> HERMES</h1>
+            <nav>
+                <a href="#oeffnungszeiten">Öffnungszeiten</a>
+                <a href="#kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="content">
+            <p class="subtitle">Willkommen bei</p>
+            <h2>Friseur Hermes</h2>
+            <p>Professionelle Friseurdienstleistungen in eleganter Atmosphäre.<br>Wir setzen Maßstäbe in Qualität und Service.</p>
+            <button class="cta-button" onclick="document.getElementById('kontakt').scrollIntoView({behavior: 'smooth'})">Kontakt</button>
+            <button class="cta-button secondary" onclick="document.getElementById('oeffnungszeiten').scrollIntoView({behavior: 'smooth'})">Öffnungszeiten</button>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Öffnungszeiten Section -->
+    <section id="oeffnungszeiten">
+        <div class="container">
+            <h2>Öffnungszeiten</h2>
+            <div class="opening-hours">
+                <div class="hours-card">
+                    <h3>Montag</h3>
+                    <p class="closed">Geschlossen</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Dienstag</h3>
+                    <p>08:00 – 18:00</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Mittwoch</h3>
+                    <p>08:00 – 18:00</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Donnerstag</h3>
+                    <p>08:00 – 19:00</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Freitag</h3>
+                    <p>08:00 – 18:00</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Samstag</h3>
+                    <p class="closed">Geschlossen</p>
+                </div>
+                <div class="hours-card">
+                    <h3>Sonntag</h3>
+                    <p class="closed">Geschlossen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt">
+        <div class="container">
+            <h2>Kontakt & Adresse</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📍 Adresse</h3>
+                    <p>Hauptstraße 36<br>48624 Schöppingen</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Telefon</h3>
+                    <p><a href="tel:+4925559971 10">02555 997110</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>🕐 Erreichbar</h3>
+                    <p>Dienstag – Freitag<br>Donnerstag bis 19:00 Uhr</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Friseur Hermes. Premium Friseursalon in Schöppingen. | Designed with ❤️</p>
+    </footer>
+</body>
+</html>
